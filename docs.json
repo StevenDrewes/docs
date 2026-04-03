@@ -43,11 +43,12 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["index", "quickstart", "guides/concepts"]
+            "pages": ["index", "quickstart"]
           },
           {
             "group": "Guides",
             "pages": [
+              "guides/concepts",
               "guides/authentication",
               "guides/credits",
               "guides/webhooks",
