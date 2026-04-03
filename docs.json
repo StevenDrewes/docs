@@ -43,7 +43,10 @@
         "groups": [
           {
             "group": "Getting Started",
-            "pages": ["index", "quickstart"]
+            "pages": [
+              "index",
+              "quickstart"
+            ]
           },
           {
             "group": "Guides",
@@ -75,7 +78,10 @@
     ]
   },
   "contextual": {
-    "options": ["copy", "view"]
+    "options": [
+      "copy",
+      "view"
+    ]
   },
   "feedback": {
     "thumbsRating": true
