@@ -1,0 +1,60 @@
+---
+title: "API Overview"
+description: "Complete reference for all CoreTone API endpoints."
+---
+
+# API Reference
+
+All endpoints use the base URL:
+
+```
+https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1
+```
+
+## Authentication
+
+Include your API key as a Bearer token:
+
+```
+Authorization: Bearer YOUR_API_KEY
+Content-Type: application/json
+```
+
+## Endpoints
+
+<CardGroup cols={2}>
+  <Card title="Profile Lookup" icon="user" href="/api-reference/profile-lookup">
+    Retrieve a contact's behavioral profile by email or LinkedIn URL.
+  </Card>
+  <Card title="Wave Compose" icon="envelope" href="/api-reference/wave-compose">
+    Generate a personalized outreach message for a contact.
+  </Card>
+  <Card title="Rephrase" icon="arrows-rotate" href="/api-reference/rephrase">
+    Adapt any message to match a contact's communication style.
+  </Card>
+  <Card title="Meeting Prep" icon="calendar" href="/api-reference/meeting-prep">
+    Get AI-generated talking points and approach strategy.
+  </Card>
+</CardGroup>
+
+## Response Format
+
+All endpoints return JSON. Successful responses use HTTP 200. Errors return appropriate status codes with a JSON error body:
+
+```json
+{
+  "error": "Description of what went wrong"
+}
+```
+
+## Error Codes
+
+| Code | Meaning |
+|------|---------|
+| `200` | Success |
+| `400` | Bad request, missing or invalid parameters |
+| `401` | Unauthorized, invalid or missing API key |
+| `402` | Insufficient credits |
+| `404` | Contact or resource not found |
+| `429` | Rate limit exceeded |
+| `500` | Internal server error |

@@ -1,0 +1,46 @@
+---
+title: "Rephrase"
+description: "Adapt a message to match a contact's communication style."
+---
+
+# Rephrase
+
+Transform any message to align with a specific contact's preferred communication style. Costs **0.1 credits** per rephrase.
+
+## Endpoint
+
+```
+POST /rephrase-for-contact
+```
+
+## Request Body
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `contact_id` | string | Yes | UUID of the target contact |
+| `message` | string | Yes | The message to rephrase |
+
+## Example Request
+
+```bash
+curl -X POST \
+  https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1/rephrase-for-contact \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contact_id": "550e8400-e29b-41d4-a716-446655440000",
+    "message": "Hey! Just wanted to check in and see how things are going with the project."
+  }'
+```
+
+## Response
+
+```json
+{
+  "original": "Hey! Just wanted to check in and see how things are going with the project.",
+  "rephrased": "Hi Jane, following up on the project timeline. Are we tracking toward the Q2 milestone?",
+  "reasoning": "Removed casual opener and added specificity. Jane's profile indicates she values directness and measurable progress markers over social check-ins.",
+  "credits_used": 0.1,
+  "credits_remaining": 148.9
+}
+```

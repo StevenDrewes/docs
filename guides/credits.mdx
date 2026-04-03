@@ -1,0 +1,37 @@
+---
+title: "Credits"
+description: "Understand how CoreTone's credit system works."
+---
+
+# Credits
+
+CoreTone uses a credit-based system for API actions that consume AI processing. Each organization has a credit balance determined by their subscription tier.
+
+## Credit Costs
+
+| Action | Credits | Description |
+|--------|---------|-------------|
+| Profile Lookup | **Free** | Retrieve existing behavioral profile data |
+| Wave Compose | **1** | Generate a personalized outreach message |
+| Meeting Prep | **1** | Generate talking points and approach strategy |
+| Call Prep | **1** | Generate conversation guidance for a phone call |
+| Presentation Prep | **1** | Generate presentation approach recommendations |
+| Rephrase | **0.1** | Adapt a message to a contact's communication style |
+
+## Credit Balance by Plan
+
+| Plan | Monthly Credits | Top-Up Available |
+|------|----------------|-----------------|
+| Starter | 50 | Yes (25% markup) |
+| Growth | 200 | Yes (25% markup) |
+| Professional | 500 | Yes (25% markup) |
+| Business | 1,500 | Yes (25% markup) |
+| Enterprise | Custom | Custom pricing |
+
+## Checking Your Balance
+
+Query your current credit balance via the API or the YourWave dashboard. When credits are exhausted, composition and prep endpoints return a `402` status code with a clear error message.
+
+## Credit Reservation
+
+When you initiate a credit-consuming action, CoreTone reserves the credits before processing. If the action fails, reserved credits are automatically refunded to your balance.

@@ -1,0 +1,53 @@
+---
+title: "Wave Compose"
+description: "Generate a personalized outreach message for a contact."
+---
+
+# Wave Compose
+
+Generate a personalized outreach message (Wave) calibrated to a contact's behavioral profile and communication preferences. Costs **1 credit** per composition.
+
+## Endpoint
+
+```
+POST /compose-wave
+```
+
+## Request Body
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `contact_id` | string | Yes | UUID of the target contact |
+| `goal` | string | No | Purpose of the outreach (e.g., "schedule a demo") |
+| `tone` | string | No | Desired tone: `professional`, `casual`, `warm`, `direct` |
+| `context` | string | No | Additional context for the message |
+| `channel` | string | No | Target channel: `email`, `linkedin`, `sms` (default: `email`) |
+
+## Example Request
+
+```bash
+curl -X POST \
+  https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1/compose-wave \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contact_id": "550e8400-e29b-41d4-a716-446655440000",
+    "goal": "Schedule a product demo",
+    "tone": "professional",
+    "channel": "email"
+  }'
+```
+
+## Response
+
+```json
+{
+  "wave": {
+    "subject": "Quick look at how we're helping teams like yours",
+    "body": "Hi Jane,\n\nI noticed your team recently expanded into enterprise accounts...",
+    "reasoning": "Jane is Achievement-First with a Dealmaker operating style. Leading with a peer reference and quantified results aligns with her decision drivers."
+  },
+  "credits_used": 1,
+  "credits_remaining": 149
+}
+```

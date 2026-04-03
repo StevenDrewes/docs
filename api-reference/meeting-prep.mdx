@@ -1,0 +1,63 @@
+---
+title: "Meeting Prep"
+description: "Get AI-generated talking points and approach strategy for a meeting."
+---
+
+# Meeting Prep
+
+Generate a comprehensive preparation brief for a meeting, call, or presentation with a specific contact. Costs **1 credit**.
+
+## Endpoint
+
+```
+POST /prep-for-meeting
+```
+
+## Request Body
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `contact_id` | string | Yes | UUID of the target contact |
+| `prep_type` | string | Yes | Type: `meeting`, `call`, or `presentation` |
+| `topic` | string | Yes | Subject of the meeting |
+| `agenda` | string | No | Meeting agenda or additional context |
+
+## Example Request
+
+```bash
+curl -X POST \
+  https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1/prep-for-meeting \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "contact_id": "550e8400-e29b-41d4-a716-446655440000",
+    "prep_type": "meeting",
+    "topic": "Q3 Partnership Review",
+    "agenda": "Review KPIs, discuss expansion, align on next quarter goals"
+  }'
+```
+
+## Response
+
+```json
+{
+  "talking_points": [
+    {
+      "point": "Open with quantified partnership results from Q2",
+      "why": "Jane is data-driven and responds best when conversations anchor in measurable outcomes before exploring strategy."
+    },
+    {
+      "point": "Present expansion options as a menu with clear ROI for each",
+      "why": "Her Decision Drivers favor structured choices over open-ended brainstorming."
+    }
+  ],
+  "approach_strategy": "Jane values efficiency and directness. Keep the meeting to 30 minutes if possible. Present data first, then invite discussion. Avoid lengthy preambles.",
+  "what_to_avoid": [
+    "Starting with personal small talk before establishing the meeting's purpose",
+    "Presenting a single recommendation without alternatives"
+  ],
+  "opening_suggestion": "Jane, I pulled our Q2 partnership numbers and there are three data points I think will shape our Q3 direction. Can I walk you through them?",
+  "credits_used": 1,
+  "credits_remaining": 148
+}
+```

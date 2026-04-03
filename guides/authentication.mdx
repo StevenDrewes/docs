@@ -1,0 +1,44 @@
+---
+title: "Authentication"
+description: "Authenticate your requests to the CoreTone API."
+---
+
+# Authentication
+
+All CoreTone API requests require authentication via a Bearer token in the Authorization header.
+
+## API Keys
+
+Generate API keys from the [Developer Portal](https://yourwave.ai/app/developer) in your YourWave account. Each key is scoped to your organization and inherits your plan's rate limits and credit balance.
+
+```bash
+Authorization: Bearer YOUR_API_KEY
+```
+
+## Example Request
+
+```bash
+curl -X POST \
+  https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1/public-profile-lookup \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "contact@example.com"}'
+```
+
+## Key Management
+
+- **Create** keys from the Developer Portal
+- **Revoke** keys instantly if compromised
+- **Rotate** keys periodically as a security best practice
+- Each organization can have multiple active keys
+
+## Security Best Practices
+
+<Warning>
+  Never expose API keys in client-side code, public repositories, or browser-accessible JavaScript. API keys should only be used in server-side applications.
+</Warning>
+
+- Store keys in environment variables or a secrets manager
+- Use separate keys for development and production
+- Monitor usage in the Developer Portal for unexpected activity
+- Revoke keys immediately if you suspect they have been compromised

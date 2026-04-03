@@ -1,0 +1,71 @@
+---
+title: "Profile Lookup"
+description: "Retrieve a contact's behavioral profile."
+---
+
+# Profile Lookup
+
+Look up a contact's behavioral profile by email address or LinkedIn URL. This endpoint is **free** and does not consume credits.
+
+## Endpoint
+
+```
+POST /public-profile-lookup
+```
+
+## Request Body
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `email` | string | One required | Contact's email address |
+| `linkedin_url` | string | One required | Contact's LinkedIn profile URL |
+
+Provide either `email` or `linkedin_url`. If both are provided, email takes precedence.
+
+## Example Request
+
+```bash
+curl -X POST \
+  https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1/public-profile-lookup \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"email": "jane@example.com"}'
+```
+
+## Response
+
+```json
+{
+  "found": true,
+  "profile": {
+    "id": "uuid",
+    "worldview_label": "Achievement-First",
+    "operating_style_label": "The Dealmaker",
+    "gem_tier": "gold",
+    "tone_zone": "clear",
+    "confidence": 0.72,
+    "tone_summary": "Direct communicator who values efficiency and data-driven decisions."
+  },
+  "connection_language": {
+    "must_do": "Lead with results and ROI; be concise and specific",
+    "must_never": "Open with small talk before establishing credibility",
+    "likes_this": "Data-backed claims with specific numbers",
+    "not_that": "Vague promises without supporting evidence"
+  },
+  "relationship": {
+    "tone_zone": "clear",
+    "last_signal_at": "2026-04-01T10:30:00Z"
+  }
+}
+```
+
+## Not Found Response
+
+When the contact has not been profiled:
+
+```json
+{
+  "found": false,
+  "message": "Contact not found in the Behavioral Genome"
+}
+```

@@ -1,97 +1,59 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "CoreTone API Documentation"
+description: "Behavioral intelligence at scale. Profile contacts, compose personalized outreach, and build deeper relationships through the CoreTone API."
 ---
 
-## Setting up
+# Welcome to the CoreTone API
 
-Get your documentation site up and running in minutes.
+The CoreTone API powers **YourWave**, a behavioral intelligence platform that helps you understand how people communicate, decide, and build trust, then use that understanding to connect more effectively.
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
-
-## Make it yours
-
-Design a docs site that looks great and empowers your users.
-
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
+<CardGroup cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Get your API key and make your first request in under 5 minutes.
   </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
+  <Card title="Core Concepts" icon="lightbulb" href="/guides/concepts">
+    Understand ToneMap profiling, Tone Zones, and the Behavioral Genome.
   </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
+  <Card title="API Reference" icon="code" href="/api-reference/overview">
+    Explore all available endpoints with request and response schemas.
   </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
+  <Card title="Authentication" icon="lock" href="/guides/authentication">
+    Learn how to authenticate your API requests.
   </Card>
-</Columns>
+</CardGroup>
 
-## Create beautiful pages
+## What You Can Build
 
-Everything you need to create world-class documentation.
+The CoreTone API enables you to integrate behavioral intelligence into your own applications:
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+**Profile Lookup** — Retrieve a contact's behavioral profile including their Worldview, Operating Style, Decision Drivers, and Communication Style.
 
-## Need inspiration?
+**Wave Composition** — Generate personalized outreach messages calibrated to a receiver's communication preferences.
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+**Rephrase** — Transform any message to match a specific contact's preferred communication style.
+
+**Meeting Prep** — Get AI-generated talking points, approach strategy, and conversation openers tailored to a specific person.
+
+## How It Works
+
+CoreTone uses a proprietary methodology called **ToneMap** to build compound behavioral profiles from multiple data sources. Each profile maps four layers of behavioral intelligence:
+
+1. **Worldview** — How a person organizes meaning and values
+2. **Operating Style** — How a person creates and delivers value
+3. **Decision Drivers** — What a person moves toward and away from
+4. **Communication Style** — How a person processes and transmits meaning
+
+These layers combine to produce actionable insights: Connection Language rules, Tone Zone readiness indicators, and personalized communication recommendations.
+
+## Base URL
+
+All API requests use the following base URL:
+
+```
+https://yeoffsnpsacsnxphsokr.supabase.co/functions/v1
+```
+
+## Need Help?
+
+- **Email**: [steven@coretone.ai](mailto:steven@coretone.ai)
+- **Status**: [status.yourwave.ai](https://status.yourwave.ai)

@@ -1,0 +1,50 @@
+---
+title: "Webhooks"
+description: "Receive real-time notifications when events occur in CoreTone."
+---
+
+# Webhooks
+
+<Info>
+  Webhook subscriptions are currently being configured. This page documents the planned webhook architecture.
+</Info>
+
+## Overview
+
+CoreTone webhooks notify your application in real-time when events occur, such as profile updates, Tone Zone changes, or Wave delivery events.
+
+## Supported Events
+
+| Event | Description |
+|-------|-------------|
+| `profile.updated` | A contact's behavioral profile has been updated |
+| `tone_zone.changed` | A contact's Tone Zone has shifted |
+| `wave.sent` | A Wave has been delivered |
+| `wave.opened` | A recipient opened a Wave |
+| `wave.replied` | A recipient replied to a Wave |
+| `beacon.fired` | A Beacon condition has been met |
+
+## Webhook Payload
+
+All webhook payloads follow a consistent structure:
+
+```json
+{
+  "event": "tone_zone.changed",
+  "timestamp": "2026-04-02T14:30:00Z",
+  "data": {
+    "contact_id": "uuid",
+    "previous_zone": "faint",
+    "current_zone": "clear",
+    "trigger": "email_reply"
+  }
+}
+```
+
+## Security
+
+Webhook payloads are signed with your webhook secret. Verify the signature before processing any webhook to prevent spoofed requests.
+
+## Retry Policy
+
+Failed webhook deliveries are retried up to 10 times over 24 hours with exponential backoff.
